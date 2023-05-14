@@ -15,13 +15,7 @@ export class User extends BaseEntity {
   @Column()
   email: string;
 
-  @Column("simple-array")
-  @ManyToMany(type => Movie)
-  @JoinTable()
-  watchedMovies: Movie[];
-
-  @Column("simple-array")
-  @ManyToMany(type => Movie)
+  @ManyToMany(() => Movie)
   @JoinTable()
   watchList: Movie[];
 }

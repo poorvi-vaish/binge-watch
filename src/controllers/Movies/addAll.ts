@@ -4,7 +4,7 @@ import { Movie } from "../../entity/movies";
 
 const addAllMovies = async (req: Request, res: Response) => {
   const moviesList = await getMovies();
-
+console.log(moviesList);
   moviesList.forEach(async (item: any) => {
     const movie = new Movie();
     movie.title = item.title;
@@ -12,6 +12,8 @@ const addAllMovies = async (req: Request, res: Response) => {
     movie.year = item.year;
     movie.genre = item.genre;
     movie.rating = item.rating;
+    movie.url = item.image;
+    movie.image = item.thumbnail;
     await movie.save();
   });
   try {

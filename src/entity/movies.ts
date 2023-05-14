@@ -20,4 +20,10 @@ export class Movie extends BaseEntity {
   @Column()
   rating: string;
 
+  @Column("text")
+  url: string;
+
+  @Column("text", {nullable: true})
+  image: string;
+
 }
